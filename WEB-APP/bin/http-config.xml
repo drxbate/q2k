@@ -1,0 +1,18 @@
+<uwsgi>
+<!--
+How to install uwsgi:
+sudo apt-get install uwsgi 
+ --> 
+        <plugin>python</plugin>
+        <chdir>/var/apps/q2k/WEB-APP</chdir>
+        <pythonpath>/var/apps/q2k/WEB-APP</pythonpath>
+        <module>app</module>
+        <callable>app</callable>
+        <protocol>socket</protocol>
+        <socket>/tmp/q2k.sock</socket>
+        <master></master>
+        <processes>4</processes>
+        <memory-report/>
+        <pidfile>/tmp/q2k.pid</pidfile>
+        <daemonize>/var/log/web-app/q2k.log</daemonize>
+</uwsgi>

@@ -1,0 +1,29 @@
+#! /bin/sh
+
+HOME=/var/apps/up1/WEB-APP
+
+cd $HOME
+
+case "$1" in
+start)
+uwsgi -x $HOME/bin/http-config.xml
+;;
+
+stop)
+uwsgi --stop /tmp/cmo-http.pid
+;;
+
+restart)
+echo Stoping service
+uwsgi --stop /tmp/cmo-http.pid
+
+sleep 3
+uwsgi -x $HOME/bin/http-config.xml
+;;
+
+*)
+echo "Usage:$0{start|stop|status}"
+;;
+esac
+
+exit 0
