@@ -5,4 +5,5 @@ Created on 2015年7月22日
 
 @author: ruixidong
 '''
+from extjs import ext as extjs
 from root import homePage

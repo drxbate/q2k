@@ -1,2 +1,6 @@
 eclipse.preferences.version=1
+encoding//common/cacheManager.py=utf-8
+encoding//httpModules/__init__.py=utf-8
+encoding//httpModules/extjs.py=utf-8
 encoding//httpModules/root.py=utf-8
+encoding/app.py=utf-8

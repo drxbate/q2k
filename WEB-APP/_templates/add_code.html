@@ -1,0 +1,21 @@
+{% extends "_base/dialog.html" %}
+{% block content %}
+<form class="form">
+<div class="form-group">
+	<label for="tvUrl">URL地址</label>
+    <input type="text" class="form-control" id="tvUrl" placeholder="URL地址，例如：http://www.baidu.com">	
+</div>
+<div class="form-group">
+	<label for="tvClass">分类</label>
+    <div>
+    	<input type="checkbox" value="001" text="IT">
+    	<input type="checkbox" value="002" text="美食">
+    	<input type="checkbox" value="003" text="资讯">
+    	<input type="checkbox" value="004" text="艺术">
+    	<input type="checkbox" value="005" text="购物">
+    	<input type="checkbox" value="006" text="求售">
+    </div>	
+</div>
+</form>
+
+{% endblock %}
