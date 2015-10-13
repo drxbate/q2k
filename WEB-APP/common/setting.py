@@ -6,11 +6,11 @@ Created on 2015年9月15日
 @author: ruixidong
 '''
 
-import ConfigParser
+import ConfigParser,os
 
 
 class __config__:
-    options={"configFile":"../setting"}
+    options={"configFile":"%s/setting"%os.getcwd()}
     @classmethod
     def setOptions(cls,options):
         cls.options.update(options)

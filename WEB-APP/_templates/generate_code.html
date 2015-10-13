@@ -1,15 +1,54 @@
 {% extends "_base/base.html" %}
 {% block content %}
-
-<div class="row">
-	<div class="col-xs-1" style="color:#eee">
-		<i class="fa fa-plus-square"></i>
-		<a role="dialog" href="add" style="color:#eee">添加短码</a>
-	</div>	
+<div class="row" style="margin-top:20px">
+<form class="form-horizontal">
+<div class="form-group">
+	<label for="tvUrl" class="col-sm-2 control-label">请输入网站</label>
+	<div class="col-sm-8">
+    	<input type="text" class="form-control" id="tvUrl" placeholder="请输入网址，例如：http://www.baidu.com">
+    </div>	
 </div>
-{% for i in items:%}
-<div class="row">
-
+<div class="form-group">
+	<div class="col-sm-8 col-sm-offset-2">
+		<button type="button" id="btnGenerate" class="btn btn-default">生成二维码</button>
+		<input type="checkbox">
+		<a href="agreement.html">我同意协议</a>
+	</div>
+	
+	<div id="divPic">
+		
+	</div>
+	
+	
 </div>
-{% endfor %}
+
+</form>
+</div>
 {% endblock %}
+{% block scripts %}
+<script type="text/javascript">
+
+$(function(){
+	var monitor=function(){
+		$.get("state",{"url":$("#tvUrl").val()},function(res){
+			if(res.state==0){
+				var img=$("<img>").attr("src",res.src+"?"+Math.random());
+				var warn=$("<div class='alert alert-warning' role='alert'></div>").text("二维码图片地址： "+res.src+" 失效时间："+res.expire+"请注意需要重新激活...");
+				$("#divPic").empty().append(img).append(warn);
+				return;
+			}
+			setTimeout(monitor,1000);
+		},"json");
+		
+	};
+	
+	$("#btnGenerate").click(function(){
+		$.post("generate",{"url":$("#tvUrl").val()},function(res){
+			if(res.state==0){
+				setTimeout(monitor,1000);
+			}
+		},"json");
+	});
+});
+</script>
+{% endblock%}

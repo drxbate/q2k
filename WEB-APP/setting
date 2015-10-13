@@ -1,0 +1,7 @@
+[accounts]
+root_domain_id = 55f7cd1dcb5f8f5f9292ac32
+
+[output]
+path=/Users/ruixidong/Documents/workspace-m1/q2k/WEB-APP/_static/__product__
+baseurl=http://127.0.0.1:9910/_static/__product__
+outsurl=http://127.0.0.1:9910

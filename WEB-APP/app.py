@@ -19,7 +19,9 @@ from flask import Flask, g, request,Response,url_for,redirect
 import os
 
 from flask.ext.bootstrap import Bootstrap
-from common import cacheManager
+from common import cacheManager,Settings
+
+Settings.setOptions(configFile="setting")
 
 app = Flask(__name__,template_folder="_templates",static_folder="_static")
 app.config['SECRET_KEY'] = '123456'

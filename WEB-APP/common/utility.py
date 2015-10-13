@@ -10,10 +10,11 @@ import md5,base64
 from bson import ObjectId
 
 def generateCode(bits):
+    codes="123456789abcdefghijklmnpqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ"
     ran = random.Random()
     ss=""
     for i in range(0,bits):
-        ss+="%d"%ran.randint(0, 9) 
+        ss+= codes[ran.randint(0, len(codes)-1)] 
     return ss
 
 def md5code(s):
