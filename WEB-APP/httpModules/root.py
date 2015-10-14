@@ -17,7 +17,7 @@ homePage = Blueprint("app",__name__)
 def __root__():
     return redirect("_/index.html")
 
-@homePage.route("<regex('[a-zA-Z0-9]{6}':code>")
+@homePage.route("<regex('[a-zA-Z0-9]{6}'):code>")
 def __tourl__(code):
     qrc=QrCodeModule.QrCode()
     uinfo = qrc.geturl(code)
