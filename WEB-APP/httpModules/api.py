@@ -14,7 +14,7 @@ from common import Settings
 api = Blueprint("api",__name__)
 
 @api.route("/generate", methods=["POST"])
-def __generate__():
+def __generate__():         
     url = request.form.get("url")
     qrc=QrCodeModule.QrCode()
     qrc.apply(url, bites=6, hours=72)
