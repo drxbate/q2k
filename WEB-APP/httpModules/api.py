@@ -10,6 +10,7 @@ import json
 from ObjectModules import QrCodeModule as qB
 from ObjectModules import QrCodeModule
 from common import Settings
+from datetime import datetime
 
 api = Blueprint("api",__name__)
 
@@ -27,6 +28,7 @@ def __state__():
     try:
         cdata = qrc.getcode(url)
         cdata["surl"]="%s/%s"%(Settings.output.outsurl,cdata["code"])
+        cdata["expire_datetime"]=datetime.fromtimestamp(float(cdata["expire"])).strftime("%Y/%m/%d/ %H:%M")
         src="%s/%s.png"%(Settings.output.baseurl,cdata["code"])
         return json.dumps(dict(state=0,data=cdata,src=src))
     except QrCodeModule.CodeNotGeneratedException,cnge:
