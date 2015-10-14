@@ -17,7 +17,7 @@
 		 -->
 	</div>
 	
-	<div id="divPic"  class="center-block">
+	<div id="divPic">
 		
 	</div>
 	
@@ -34,7 +34,7 @@ $(function(){
 	var monitor=function(){
 		$.get("api/state",{"url":$("#tvUrl").val()},function(res){
 			if(res.state==0){
-				var img=$("<img>").attr("src",res.src+"?"+Math.random());
+				var img=$("<img class='center-block'>").attr("src",res.src+"?"+Math.random());
 				var warn=$("<div class='alert alert-warning' role='alert'></div>").text("短网址： " + res.data.surl + " 二维码图片地址： "+res.src+" 失效时间："+res.data.expire_datetime+" 请注意需要重新激活...");
 				$("#divPic").empty().append(img).append(warn);
 				return;
