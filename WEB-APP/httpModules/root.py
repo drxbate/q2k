@@ -17,7 +17,7 @@ homePage = Blueprint("app",__name__)
 def __root__():
     return redirect("_/index.html")
 
-@homePage.route("<code>")
+@homePage.route("<regex('[a-zA-Z0-9]｛6｝':code>")
 def __tourl__(code):
     qrc=QrCodeModule.QrCode()
     uinfo = qrc.geturl(code)
@@ -36,7 +36,7 @@ def __profile__():
 def __generate__():
     url = request.form.get("url")
     qrc=QrCodeModule.QrCode()
-    qrc.apply(url, bites=8, hours=72)
+    qrc.apply(url, bites=6, hours=72)
     return json.dumps(dict(state=0)) 
 
 @homePage.route("_/state", methods=["GET"])
