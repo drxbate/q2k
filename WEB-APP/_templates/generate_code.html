@@ -35,10 +35,9 @@ $(function(){
 		$.get("api/state",{"url":$("#tvUrl").val()},function(res){
 			if(res.state==0){
 				var img=$("<img class='center-block'>").attr("src",res.src+"?"+Math.random());
-				var warn=$("<div class='alert alert-warning' role='alert'></div>").text("短网址： " + res.data.surl + " 二维码图片地址： "+res.src);
-				$("#divPic").empty().append(img).append(warn);
-				warn=$("<div class='alert alert-warning' role='alert'></div>").text("（免广告）失效时间："+res.data.expire_datetime+" 请注意需要重新生成/激活...");
-				$("#divPic").empty().append(img).append(warn);
+				var warn0=$("<div class='alert alert-warning' role='alert'></div>").text("短网址： " + res.data.surl + " 二维码图片地址： "+res.src);
+				var warn1=$("<div class='alert alert-warning' role='alert'></div>").text("（免广告）失效时间："+res.data.expire_datetime+" 请注意需要重新生成/激活...");
+				$("#divPic").empty().append(img).append(warn0).append(warn1);
 				return;
 			}
 			setTimeout(monitor,1000);
