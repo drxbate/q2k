@@ -13,14 +13,14 @@ from common import Settings
 
 api = Blueprint("api",__name__)
 
-@api.route("generate", methods=["POST"])
+@api.route("/generate", methods=["POST"])
 def __generate__():
     url = request.form.get("url")
     qrc=QrCodeModule.QrCode()
     qrc.apply(url, bites=6, hours=72)
     return json.dumps(dict(state=0)) 
 
-@api.route("state", methods=["GET"])
+@api.route("/state", methods=["GET"])
 def __state__():
     url = request.args.get("url")
     qrc=QrCodeModule.QrCode()
