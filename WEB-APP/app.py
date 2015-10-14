@@ -20,12 +20,20 @@ import os
 
 from flask.ext.bootstrap import Bootstrap
 from common import cacheManager,Settings
+from werkzeug.routing import BaseConverter
 
 Settings.setOptions(configFile="setting")
 
+class RegexConverter(BaseConverter):
+    def __init__(self, map, *args):
+        self.map = map
+        self.regex = args[0]
+
 app = Flask(__name__,template_folder="_templates",static_folder="_static")
 app.config['SECRET_KEY'] = '123456'
+app.url_map.converters['regex'] = RegexConverter
 app.debug = True
+
 
 
 bootstrap = Bootstrap(app)
