@@ -26,6 +26,7 @@ def __state__():
     qrc=QrCodeModule.QrCode()
     try:
         cdata = qrc.getcode(url)
+        cdata["surl"]="%s/%s"%(Settings.output.outsurl,cdata["code"])
         src="%s/%s.png"%(Settings.output.baseurl,cdata["code"])
         return json.dumps(dict(state=0,data=cdata,src=src))
     except QrCodeModule.CodeNotGeneratedException,cnge:
