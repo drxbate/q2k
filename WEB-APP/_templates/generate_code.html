@@ -44,7 +44,7 @@ $(function(){
 		var url=$("#tvUrl").val();
 		if(!IsURL(url)){
 			var error=$("<div class='alert alert-danger' role='alert'></div>").text("网址格式错误，请输入网址，例如：http://www.baidu.com");
-			$("#divPic").empty().append(img).append(error);
+			$("#divPic").empty().append(error);
 			return;
 		}
 		$.get("api/state",{"url":url},function(res){
