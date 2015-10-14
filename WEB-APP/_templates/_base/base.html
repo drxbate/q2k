@@ -1,8 +1,10 @@
 {% extends "bootstrap/base.html" %}
 
-{% block title %}{{ title }}{% endblock %}
+{% block title %}二维码工厂--永久免费的二维码生成工具{% endblock %}
 {% block head%}
 {{ super() }}
+
+<meta name="keywords" content="二维码, 短网址, 二维码生成工具, 免费, 托管">
 <link rel="stylesheet" href="{{url_for('static', filename='awe/css/font-awesome.min.css')}}"></link>
 <link rel="stylesheet" href="{{url_for('static', filename='bootstrap/css/bootstrap.min.css')}}"></link>
 
@@ -34,7 +36,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/" style="color:white">短码工厂</a>
+            <a class="navbar-brand" href="/" style="color:white">二维码工厂</a>
             
         </div>
         
