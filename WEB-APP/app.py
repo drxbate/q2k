@@ -42,9 +42,10 @@ cacheManager.init_cache(app)
 #init flask app ---end
 
 #load http modules for flask app --begin
-from httpModules import extjs,homePage
+from httpModules import extjs,homePage,api
 
 app.register_blueprint(homePage,url_prefix= "/")
+app.register_blueprint(api,url_prefix= "/api")
 app.register_blueprint(extjs,url_prefix= "/js")
 #app.jinja_env.add_extension('jinja2.ext.i18n')
 
