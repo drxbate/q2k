@@ -8,7 +8,6 @@
 <meta name="description" content="不是所有二维码都可以被任何手机扫描，二维码可识别度对网址长度有严格要求，二维码工厂帮助您缩短网址。">
 <meta name="baidu-site-verification" content="kW7FayCzre" />
 <link rel="stylesheet" href="{{url_for('static', filename='awe/css/font-awesome.min.css')}}"></link>
-<link rel="stylesheet" href="{{url_for('static', filename='bootstrap/css/bootstrap.min.css')}}"></link>
 
 <style type="text/css">
 	.navbar{margin-bottom:0px;}
@@ -18,7 +17,8 @@
 </style>
 <script type="text/javascript" src="{{url_for('static', filename='js/jquery.js')}}"></script>
 <script type="text/javascript" src="/js/ext.js"></script>
-<script type="text/javascript" src="{{ url_for('static', filename='bootstrap/js/bootstrap.js') }}"></script>
+
+<script type="text/javascript" src="{{bootstrap_find_resource('js/bootstrap.js', cdn='jquery')}}"></script>
 <script type="text/javascript">
 	var CURRENT_NAV_ID="{{ NAV_ID }}";
 	if(CURRENT_NAV_ID!=""){

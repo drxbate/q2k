@@ -37,6 +37,9 @@ app.debug = True
 
 
 bootstrap = Bootstrap(app)
+app.extensions["bootstrap"]["cdns"]["bootstrap"].fallback.baseurl="//cdn.bootcss.com/bootstrap/3.3.5/"
+app.extensions["bootstrap"]["cdns"]["jquery"].fallback.baseurl="//cdn.bootcss.com/bootstrap/3.3.5/"
+
 cacheManager.init_cache(app)
 
 #init flask app ---end
