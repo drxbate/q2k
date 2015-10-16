@@ -29,3 +29,7 @@ def __homePage__():
 @homePage.route("login.html")
 def __profile__():
     return render_template("login.html")
+
+@homePage.route("googleb81a9db8331cbc53.html")
+def __google_valid_file__():
+    return "google-site-verification: googleb81a9db8331cbc53.html"
