@@ -12,7 +12,7 @@ from ObjectModules import QrCodeModule
 from common import Settings
 
 homePage = Blueprint("root",__name__)
-
+ 
 @homePage.route("<regex('[a-zA-Z0-9]{6}'):code>")
 def __tourl__(code):
     qrc=QrCodeModule.QrCode()
