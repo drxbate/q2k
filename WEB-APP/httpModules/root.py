@@ -13,10 +13,6 @@ from common import Settings
 
 homePage = Blueprint("root",__name__)
 
-@homePage.route("")
-def __root__():
-    return redirect("index.html")
-
 @homePage.route("<regex('[a-zA-Z0-9]{6}'):code>")
 def __tourl__(code):
     qrc=QrCodeModule.QrCode()
@@ -24,9 +20,11 @@ def __tourl__(code):
     url=uinfo["url"]
     return redirect(url)
 
+@homePage.route("")
 @homePage.route("index.html")
 def __homePage__():
     return render_template("generate_code.html")
+
 
 @homePage.route("login.html")
 def __profile__():
