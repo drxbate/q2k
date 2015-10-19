@@ -6,3 +6,5 @@
 *.pyc
 
 *.pyc
+
+WEB-APP/httpModules/root.pyc
